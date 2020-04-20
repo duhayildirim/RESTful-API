@@ -20,4 +20,5 @@ class urunler extends Model
     const DELETED_AT = 'silinme_tarihi';
 
 
+
 }
