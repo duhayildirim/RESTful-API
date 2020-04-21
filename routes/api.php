@@ -24,3 +24,10 @@ Route::get('/veri_goster/{id}','Api\urun_detay_controller@veri_goster');
 Route::get('/sayfalandirma' , 'Api\urun_detay_controller@sayfalandirma');
 Route::get('/sayfalandirma_2' , 'Api\urun_detay_controller@sayfalandirma_2');
 Route::get('/filtreleme' , 'Api\urun_detay_controller@filtreleme');
+
+Route::get('/kategorileri_goster' , 'Api\kategoriler_controller@kategoriler');
+Route::post('/kategori_kaydet' , 'Api\kategoriler_controller@kaydet');
+Route::get('/kategori_ara/{id}' , 'Api\kategoriler_controller@goster');
+Route::put('/kategori_guncelle/{id}' , 'Api\kategoriler_controller@guncelle');
+Route::delete('/kategori_sil/{id}' , 'Api\kategoriler_controller@sil');
+

@@ -7,7 +7,7 @@ Route::get('/', function () {
 });
 // Route::resource('/urunler','urun_controller'); //bu method benim yerime bütün istekleri otomatik olarak oluşturuyor
 
-// php artisan route:list //dedikten sonra tüm routelarıo görebilirsin
+// php artisan route:list //dedikten sonra tüm routeları görebilirsin
 
 // Route::resource('/urunler','urun_controller')->only(['index','show']);
 //only diyerek sadece index ile show methodlarını kullanacağımı belirtiyorum

@@ -22,12 +22,13 @@ class urunler_controller extends Controller
     public function store(Request $request)
     {
         $girdi = $request->all();
-        $urun = urunler::create($girdi);
-//        $girdi = new urunler();
-//        $girdi -> fill($request->all());
-//        $girdi -> save();
+        urunler::create($girdi);
 
-        return response()->json($urun,201);
+//          $new = new urunler();
+//          $new -> fill($request->all());
+//          $new -> save();
+
+        return response()->json(urunler::all());
     }
 
     public function show(urunler $urunler)

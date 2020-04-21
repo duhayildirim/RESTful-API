@@ -66,6 +66,6 @@ class urun_detay_controller extends Controller
         $veri = $list->offset($offset)->limit($limit)->get();
 
         return response($veri , 200);
-        //api/filtreleme?deger=o içinde o harfi geçenleri getirdi
+        //api/filtreleme?deger=o&sirala=id içinde o harfi geçen verileri id'sine göre tersten sıralayarak getirdi
     }
 }
