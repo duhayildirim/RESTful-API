@@ -34,7 +34,7 @@ class urun_detay_controller extends Controller
     public function sayfalandirma_2(Request $request)
     {
         // Gelen isteğe göre ne kadar veri göstermem gerekiyorsa ona göre fonksiyon yazıyorum
-        // önce offset limit değerlerinin dolu gelip gelmediğini kontrol etmeliyim
+        // önce offset limit değerlerinin dolu gelip gelmediğini kontrol etmeliyim ona göre default değer vereyim
 
         $offset = $request->has('offset') ? $request->offset : 0 ;
         $limit = $request->has('limit') ? $request->limit : 10 ;

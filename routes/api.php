@@ -19,14 +19,19 @@ Route::apiResource('/urunler' , 'Api\urunler_controller'); // Otomatik olarak be
 //     'urunler' => 'Api\urunler_controller',
 //     'kullanicilar' => 'Api\kullanicilar_controller',
 // ]);
+Route::get('/kullanicilar' , 'Api\kullanici_controller@kullanicilar');
+Route::post('/kullanicilar' , 'Api\kullanici_controller@kullanici_kaydet');
+Route::get('/kullanicilar/{id}' , 'Api\kullanici_controller@kullanici_goster');
+Route::put('/kullanicilar/{id}' , 'Api\kullanici_controller@kullanici_guncelle');
+Route::delete('/kullanicilar/{id}' , 'Api\kullanici_controller@kullanici_sil');
 
 Route::get('/veri_goster/{id}','Api\urun_detay_controller@veri_goster');
 Route::get('/sayfalandirma' , 'Api\urun_detay_controller@sayfalandirma');
 Route::get('/sayfalandirma_2' , 'Api\urun_detay_controller@sayfalandirma_2');
 Route::get('/filtreleme' , 'Api\urun_detay_controller@filtreleme');
 
-Route::get('/kategorileri_goster' , 'Api\kategoriler_controller@kategoriler');
-Route::post('/kategori_kaydet' , 'Api\kategoriler_controller@kaydet');
+Route::get('/kategoriler' , 'Api\kategoriler_controller@kategoriler');
+Route::post('/kategoriler' , 'Api\kategoriler_controller@kaydet');
 Route::get('/kategori_ara/{id}' , 'Api\kategoriler_controller@goster');
 Route::put('/kategori_guncelle/{id}' , 'Api\kategoriler_controller@guncelle');
 Route::delete('/kategori_sil/{id}' , 'Api\kategoriler_controller@sil');

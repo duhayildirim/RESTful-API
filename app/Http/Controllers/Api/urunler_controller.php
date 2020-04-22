@@ -33,7 +33,7 @@ class urunler_controller extends Controller
 
     public function show(urunler $urunler)
     {
-        //bir daha veri tabanında aramakla uğraşmadım
+        // bir daha veri tabanında aramakla uğraşmadım
         // return response($urunler , 200);
         // return response()->json($urunler , 200);
          return $urunler;

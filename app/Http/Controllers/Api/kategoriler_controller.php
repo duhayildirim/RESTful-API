@@ -18,9 +18,9 @@ class kategoriler_controller extends Controller
     public function kaydet(Request $request)
     {
         $kaydedilecek_veri = $request->all();
-        $veri = kategoriler::create($kaydedilecek_veri);
+        $data = kategoriler::create($kaydedilecek_veri);
 
-        return response(['eklenen veri'=>$veri]);
+        return response()->json($data);
 
     }
 
