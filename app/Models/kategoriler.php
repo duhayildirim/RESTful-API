@@ -17,5 +17,8 @@ class kategoriler extends Model
     const UPDATED_AT = 'guncelleme_tarihi';
     const DELETED_AT = 'silinme_tarihi';
 
-
+    public function urunler()
+    {
+        return $this ->hasMany(urunler_kategoriler::class,'kategori_id');
+    }
 }

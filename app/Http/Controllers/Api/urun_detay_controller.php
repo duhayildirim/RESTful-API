@@ -68,4 +68,12 @@ class urun_detay_controller extends Controller
         return response($veri , 200);
         //api/filtreleme?deger=o&sirala=id içinde o harfi geçen verileri id'sine göre tersten sıralayarak getirdi
     }
+
+    public function donus_kolonu()
+    {
+        //bir tablodan birden fazla kolon çekiyorum
+        $kolonlar = urunler::select('id' , 'ad' , 'fiyat')->orderBy('olusturulma_tarihi' , 'desc')->take(10)->get();
+
+        return response()->json(['veri' => $kolonlar]);
+    }
 }

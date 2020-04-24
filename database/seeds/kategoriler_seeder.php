@@ -12,7 +12,9 @@ class kategoriler_seeder extends Seeder
      */
     public function run(Faker\Generator $faker)
     {
-        DB::table('kategoriler')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        DB::statement('TRUNCATE TABLE kategoriler');
+        //DB::table('kategoriler')->truncate();
 
         for ($i=0 ; $i<15 ; $i++)
         {
@@ -22,6 +24,8 @@ class kategoriler_seeder extends Seeder
                 'ad' => $kategori_adi
             ]);
         }
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
     }
 }
