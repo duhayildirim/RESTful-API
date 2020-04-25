@@ -11,7 +11,7 @@ class kategoriler_controller extends Controller
     public function kategoriler()
     {
         $kategoriler = kategoriler::all();
-
+        // $kategoriler = $kategoriler ->makeHidden('kolon_adı'); diyerek seçtiğim kolonun gelmemesini sağlarım
         return response()->json(['kategoriler' =>$kategoriler],200);
     }
 
@@ -30,6 +30,7 @@ class kategoriler_controller extends Controller
 
         return response()->json($aranan);
     }
+
 
     public function guncelle(Request $request,$id)
     {

@@ -14,6 +14,7 @@ $factory->define(ornek_model_sinifi::class, function (Faker $faker) {
         'aciklama' => $faker -> paragraph(5), // 5 cümleden oluşan paragraf
         'sifre' => Str::random(10),
         'fiyat' => mt_rand(10,100) / 10                 // 10 ile 100 arası küsüratlı değer
+        // 'first_name' => $faker->(burada ctrl+space yaparak faker kütüphanesinde neleri kullanabileceğini görebilirsin)
     ];
 
     // $ornek_veri = factory(App\ornek_model_sinifi::class , 500)->create() //tinkerda diyerek 500 tane fake veri oluşturabilirim

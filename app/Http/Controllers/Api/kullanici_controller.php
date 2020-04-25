@@ -11,7 +11,11 @@ class kullanici_controller extends Controller
     public function kullanicilar()
     {
         $kullanicilar = User::all();
-
+        $kullanicilar->each(function ($kullanici)
+        {
+            $kullanici->setAppends(['full_name']);
+        });
+        //bu yapıyı kullanabilmek için User modelindeki $appends tanımımı devre dışı bırakmam gerek
         return response()->json($kullanicilar,200);
     }
 

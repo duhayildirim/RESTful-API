@@ -18,4 +18,8 @@ class urunler_kategoriler extends Model
     const UPDATED_AT = 'guncelleme_tarihi';
 
     const DELETED_AT = 'silinme_tarihi';
+
+    // bir tabloda kolonların gizli kalmasını veri çekme durumunda
+    // gelmemesini istiyorsan >  protected $hidden = ['urun_adi' ,'fiyat'];  <  kullanırım
+    // bunun yerine veriyi dönüş yaptığım fonksiyonda gizlemeyi tercih ederim (kategoriler_controller@kategoriler)
 }
