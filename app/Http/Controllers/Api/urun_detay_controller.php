@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\urunler_resource;
+use App\Http\Resources\urunlerCollection;
 use App\Models\urunler;
 use Illuminate\Http\Request;
 
@@ -24,8 +26,10 @@ class urun_detay_controller extends Controller
     public function sayfalandirma()
     {
         // ürünleri sayfalandırarak ekranda göstermek için bir fonksiyon yazıyorum
+        // ben bu sayfaya bir parametre yollarsam otomatik olarak o sayfadan başlayarak o kaydı gösterebiliyor
 
         return response(urunler::paginate(10), 200);
+
         // ilk on ürünü seçtim
         // paginate komutu kendisi ile birlikte özel anahtar kelimeler ile birlikte gelmektedir
         // bunlar current_page , data , last_page_url , next_page_url , path , total ...
@@ -98,5 +102,55 @@ class urun_detay_controller extends Controller
         });
 
         return response()->json($mapped->all());
+    }
+
+    public function fonksiyon_1()
+    {
+        // tek kayıt dönderirken
+        // tüm kolonları göstermek yerine urunler_resource'deki istediğim kolonları göstersin
+
+        $urun2 = urunler::find(2);
+
+        return new urunler_resource($urun2);
+    }
+
+    public function fonksiyon_2()
+    {
+        // birden fazla kayıt dönderirken resource collection methodunu kullanırız
+        // tüm kolonları göstermek yerine urunler_resource'deki istediğim kolonları göstersin
+
+        $urunler = urunler::all();
+
+        return urunler_resource::collection($urunler);
+    }
+
+    public function fonksiyon_3()
+    {
+        //php artisan make:resource urunlerCollection LARAVEL bunun bir collection olduğunu anlayacaktır
+
+        $urunler = urunler::all();
+
+        return new urunlerCollection($urunler);
+    }
+
+    public function fonksiyon_4()
+    {
+        //resource_collection oluşturmaya kullanmaya gerek kalmadan ek kolonları şu şekilde döndürebiliriz
+        //ayrı bir dosya oluşturmadan 'additional' kullanarak meta dosyamızı tanımladık
+
+        $urunler = urunler::all();
+
+        return urunler_resource::collection($urunler)->additional([
+           'meta' => ['toplam_urun' => $urunler->count(), 'custom' => 'value']
+        ]);
+    }
+
+    public function fonksiyon_5()
+    {
+        //resource sayfalandırma işlemi için kullanacağız
+        //ben bu sayfaya bir parametre yollarsam otomatik olarak o sayfadan başlayarak o kaydı gösterebiliyor
+        $urunler = urunler::paginate(10);
+
+        return urunler_resource::collection($urunler);
     }
 }

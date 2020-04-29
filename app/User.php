@@ -34,10 +34,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
+        //casts => bir veriyi başka bir biçime dönüştürmek
         'email_verified_at' => 'datetime',
+        'created_at' => 'date:Y-m-d', // sadece tarihi göstermesini istedim // tarihsel ifadeyi biçimlendirmiş oldum
+        'updated_at' => 'date:Y-m-d H' // tarihi ve sadece saati göstermesini istedim // tarihsel ifadeyi biçimlendirmiş oldum
     ];
 
-    // protected $appends = ['full_name']; //ben user tablomdaki first_name ile last_name kolonlarını birleştirerek
+     protected $appends = ['full_name']; //ben user tablomdaki first_name ile last_name kolonlarını birleştirerek
     // tek bir kolonda kullanmak istiyorum bu kolona da full_name adını verdim
     // $appends ile de User modeli üzerinden yapacağım sorgularda ek olarak full_name adındaki kolonunda dönmesini istedim
     // böyle tanımlamak yeterli değil bunu oluşturacak get metodunu tanımlamalıyım
